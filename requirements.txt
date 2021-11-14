@@ -1,6 +1,7 @@
 pillow
 pickleshare
 numpy
+matplotlib
 tensorflow-cpu
 urllib3
 gunicorn

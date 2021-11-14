@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Image Captioning</title>
+	<!-- <title>Image Captioning</title> -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	
 
 <style type="text/css">
+.container-fluid{
+	    background: linear-gradient(to right, #80b3b5, #101f1c);
+	    height: 100vh;
+	    padding: 0px !important;
+}
+.form-control{
+	display: block !important;
+	margin-bottom: 10px;
+	border: 1px solid currentColor;
+	border-radius: 400px;
+	padding: 3px 20px;
+    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+}
+.form-container{
+	padding-left: 20px;
+}
+.form-inline label{
+	display: flex;
+	justify-content: start !important;
+	margin-bottom: 8px;
+}
 	
 .heading{
     font-weight: 100;
@@ -21,26 +45,95 @@ img{
 	font-style: italic;
 }
 
+.header-container{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 8px;
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+}
+.btn-container{
+	display: flex;
+	width: 30%;
+	justify-content: space-between;
+	/*width: 100%;*/
+}
+.btn1{
+	text-decoration: none;
+    background-color: transparent;
+    padding: 0.5321rem;
+        font-size: 11px;
+    font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
+    letter-spacing: 2px;
+    text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+
+}
+.btn1:hover{
+	color: white;
+}
+.title-name{
+	font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: #fcbd20;
+    padding-top: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    cursor: pointer;
+    width: 26%;
+    text-align: center;
+	/*text-decoration:none;*/
+}
+.title-name:hover{
+	color: white;
+	/*text-decoration:none;*/
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: white;
+}
 
 </style>
 
 </head>
 <body>
-	<div class="container">
-		<div class="jumbotron ">
+	<div class="container-fluid">
+		<!-- <div class="jumbotron ">
 	        <div class="container">
 	            <h1 class="heading">Image Captioning</h1> 
 	            <p>Upload your Image to generate a caption..</p> 
 	        </div>
+	    </div> -->
+	    <div class="header-container">
+	    	<div class="title-name">Caption Pic</div>
+	    	<div class="btn-container">
+	    		<div>
+	    			<a style="text-decoration: none;" class="btn1" href="https://github.com/Aakash-Khair/Image-Captioning-Flask-Web-App">Source code</a>
+	    		</div>
+	    		
+	    	</div>
 	    </div>
-	
-	
-
+	<div class="form-container">
+	<div class="header-content mx-auto" id="content">
+                        <h1 class="mb-5">Let your computer say what happens in the image.</h1>
+    </div>
 		<form class="form-inline" enctype="multipart/form-data" action="/" method="POST">
-	        <label><b>Image: &nbsp;&nbsp; </b></label>
-	        <input type="file" class="form-control" name="image">
-
-	        <button type="submit" class="btn btn-primary"> Submit</button>
+			<div class="form-container">
+				<label><b>Upload Image: </b></label>
+	        	<input type="file" class="form-control" name="image">
+	        	<button type="submit" class="btn btn-primary"> Submit</button>
+			</div>
+	        
 	    </form>
 
 	    <br>
@@ -54,7 +147,7 @@ img{
 	    		<div class="col-sm-8">
 
 	    			<p class="text">Generated Caption : </p>
-	    			<p><b> {{results.description}} </b> </p>
+	    			<p><i><b> {{results.description.upper()}} </b></i> </p>
 	    		</div>
 	    {% endif %}
 
